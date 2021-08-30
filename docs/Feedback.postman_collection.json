@@ -9,7 +9,7 @@
 			"name": "feedback/user",
 			"item": [
 				{
-					"name": "/feedback/user",
+					"name": "GetMyFeedbacks",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -112,7 +112,7 @@
 					]
 				},
 				{
-					"name": "/feedback/user",
+					"name": "CreateFeedback",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -332,7 +332,7 @@
 			"name": "feedbacks",
 			"item": [
 				{
-					"name": "/feedbacks",
+					"name": "GetFeedbacks (Pagination only)",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -353,6 +353,165 @@
 									"key": "Offset",
 									"value": "0"
 								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"message\": \"dolor exer\",\n  \"id\": \"urn:uuid:89aa7a81-9e62-f0c2-e377-11d48418bf0d\",\n  \"date\": \"1990-12-14T08:26:04.584Z\",\n  \"title\": \"minim ullamco Duis adipisicing\",\n  \"categories\": [\n   \"cupidatat qui\",\n   \"quis eiusmod nisi occaecat\"\n  ],\n  \"attachments\": [\n   {\n    \"url\": \"Ut incididunt\"\n   },\n   {\n    \"url\": \"sunt culpa quis\"\n   }\n  ]\n },\n {\n  \"message\": \"dolore\",\n  \"id\": \"8e99f093-a182-f274-2642-b1b7ea0183e2\",\n  \"date\": \"2009-12-21T20:58:24.998Z\",\n  \"title\": \"ullamco quis\",\n  \"categories\": [\n   \"et ipsum consequat\",\n   \"enim incididunt\"\n  ],\n  \"attachments\": [\n   {\n    \"url\": \"quis\"\n   },\n   {\n    \"url\": \"ea ullamco\"\n   }\n  ]\n }\n]"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "GetFeedbacksFiltered",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "UserId",
+									"value": "8dd0e473-74f2-4f1c-b215-64ea0a6bb61e",
+									"type": "text"
+								},
+								{
+									"key": "Message",
+									"value": "hello",
+									"type": "text"
+								},
+								{
+									"key": "Category",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "From",
+									"value": "30-08-2021",
+									"type": "text"
+								},
+								{
+									"key": "To",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/feedbacks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"feedbacks"
 							]
 						}
 					},
@@ -641,7 +800,7 @@
 			"name": "jwt-fake",
 			"item": [
 				{
-					"name": "/jwt-fake",
+					"name": "Get JWT Normal User",
 					"event": [
 						{
 							"listen": "test",
@@ -700,7 +859,7 @@
 					]
 				},
 				{
-					"name": "/jwt-fake/admin",
+					"name": "Get JWT Admin",
 					"event": [
 						{
 							"listen": "test",
