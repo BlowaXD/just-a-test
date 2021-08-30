@@ -1,0 +1,29 @@
+---
+apiVersion: networking.k8s.io/v1
+kind:       Ingress
+metadata:
+  name: 'feedback-api'
+spec:
+  tls:
+    - hosts: [ "feedback-api.example.com" ]
+      secretName: 'feedback-api-tls'
+  rules:
+    - host: "feedback-api.example.com" # should be replaced if exposed publicly
+      http:
+        paths:
+          - pathType: Prefix
+            path:     "/"
+            backend:
+              service:
+                name: 'feedback-api'
+                port:
+                  number: 80
+    - http:
+        paths:
+          - pathType: Prefix
+            path:     "/feedback-v1" # api.darewise.com/feedback-v1/*
+            backend:
+              service:
+                name: 'feedback-api'
+                port:
+                  number: 80

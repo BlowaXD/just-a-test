@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind:       Deployment
+metadata:
+  name: 'feedback-api'
+  labels:
+    app: 'feedback-api'
+    version: 'latest' # should use version with a templating engine
+spec:
+  selector:
+    matchLabels:
+      app: 'feedback-api'
+  template:
+    metadata:
+      labels:
+        app: 'feedback-api'
+    spec:
+      containers:
+        - name:  'feedback-api'
+          image: 'feedback-api:latest' # should use version with a templating engine
+          ports:
+            - containerPort: 80
+#      imagePullSecrets: to add
+#        - name: '{{ registry_secret_name }}'
