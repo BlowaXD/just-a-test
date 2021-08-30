@@ -75,7 +75,7 @@ builder.Services.AddSingleton(typeof(IMapper<,>), typeof(GenericMapsterMapper<,>
 // I would have preferred InMemoryDatabase but EFCore.InMemory does not support SQL & NoSQL inline
 builder.Services.AddDbContextFactory<FeedbackDbContext>(options =>
 {
-    options.UseNpgsql($"Host=localhost;Database=feedback-api;Username=postgres;Password=strong_pass2018");
+    options.UseNpgsql(builder.Configuration.GetSection("EfCore").GetValue<string>("ConnectionString"));
 });
 builder.Services.AddLogging();
 builder.Services.AddSingleton<IFeedbackRepository, EfCoreFeedbackRepository>();

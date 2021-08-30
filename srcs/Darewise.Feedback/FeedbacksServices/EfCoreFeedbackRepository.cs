@@ -24,7 +24,7 @@ namespace Darewise.Feedback.Controllers
             try
             {
                 await using FeedbackDbContext? context = _contextFactory.CreateDbContext();
-                return await context.Feedbacks.Skip(offset).Take(limit).ToListAsync();
+                return await context.Feedbacks.Distinct().OrderBy(s => s.Date).Skip(offset).Take(limit).ToListAsync();
             }
             catch (Exception e)
             {
@@ -38,7 +38,51 @@ namespace Darewise.Feedback.Controllers
             try
             {
                 await using FeedbackDbContext? context = _contextFactory.CreateDbContext();
-                return await context.Feedbacks.Where(s => s.UserId == userId).Skip(offset).Take(limit).ToListAsync();
+                return await context.Feedbacks.Where(s => s.UserId == userId).Distinct().OrderBy(s => s.Date).Skip(offset).Take(limit).ToListAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "GetByUserIdAsync failed");
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<FeedbackEntity>> GetAsync(int limit = 50, int offset = 0, Guid? queryUserId = null, string? message = null, string? category = null, DateTime? @from = null,
+            DateTime? to = null)
+        {
+            try
+            {
+                await using FeedbackDbContext? context = _contextFactory.CreateDbContext();
+
+                IQueryable<FeedbackEntity> query = context.Feedbacks;
+
+                if (queryUserId.HasValue)
+                {
+                    query = query.Where(s => s.UserId == queryUserId);
+                }
+
+                if (!string.IsNullOrEmpty(message))
+                {
+                    query = query.Where(s => s.Message.Contains(message));
+                }
+
+                if (!string.IsNullOrEmpty(category))
+                {
+                    query = query.Where(s => s.Categories.Contains(category));
+                }
+
+                if (from.HasValue)
+                {
+                    query = query.Where(s => s.Date >= from);
+                }
+
+                if (to.HasValue)
+                {
+                    query = query.Where(s => s.Date <= to);
+                }
+
+
+                return await query.Distinct().OrderBy(s => s.Date).Skip(offset).Take(limit).ToListAsync();
             }
             catch (Exception e)
             {

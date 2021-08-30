@@ -24,7 +24,7 @@ namespace Darewise.Feedback.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetFeedbacks")]
         public async Task<IEnumerable<FeedbacksModel>> Get([FromQuery] FeedbackGetPaginatedForm query)
         {
             IEnumerable<FeedbackEntity>? feedbacks = await _repository.GetAsync(query.Limit ?? 50, query.Offset ?? 0);
@@ -35,6 +35,13 @@ namespace Darewise.Feedback.Controllers
         public async Task<IEnumerable<FeedbacksModel>> GetByUserId(Guid userId, [FromQuery] FeedbackGetPaginatedForm query)
         {
             IEnumerable<FeedbackEntity>? feedbacks = await _repository.GetByUserIdAsync(userId, query.Limit ?? 50, query.Offset ?? 0);
+            return _mapper.Map(feedbacks);
+        }
+
+        [HttpPost(Name = "GetFeedbacksFiltered")]
+        public async Task<IEnumerable<FeedbacksModel>> GetFeedbacksFiltered([FromForm] FeedbackGetSearchForm query)
+        {
+            IEnumerable<FeedbackEntity>? feedbacks = await _repository.GetAsync(query.Limit ?? 50, query.Offset ?? 0, query.UserId, query.Message, query.Category, query.From, query.To);
             return _mapper.Map(feedbacks);
         }
     }

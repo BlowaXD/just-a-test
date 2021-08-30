@@ -24,6 +24,19 @@ namespace Darewise.Feedback.Controllers
         /// <returns></returns>
         Task<IEnumerable<FeedbackEntity>> GetByUserIdAsync(Guid userId, int limit = 50, int offset = 0);
 
+        /// <summary>
+        /// Retrieves all feedbacks matching a set of filters
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        /// <param name="queryUserId"></param>
+        /// <param name="message"></param>
+        /// <param name="category"></param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
+        Task<IEnumerable<FeedbackEntity>> GetAsync(int limit = 50, int offset = 0, Guid? queryUserId = null, string? message = null, string? category = null, DateTime? @from = null, DateTime? to = null);
+
 
         /// <summary>
         /// Saves the given feedback

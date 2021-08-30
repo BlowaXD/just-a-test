@@ -1,0 +1,806 @@
+{
+	"info": {
+		"_postman_id": "fe0eaf71-9f69-4479-8874-b3d8758d6ac3",
+		"name": "Feedback",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "feedback/user",
+			"item": [
+				{
+					"name": "/feedback/user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/feedback/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"feedback",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedback/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedback",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"message\": \"dolor exer\",\n  \"id\": \"urn:uuid:89aa7a81-9e62-f0c2-e377-11d48418bf0d\",\n  \"date\": \"1990-12-14T08:26:04.584Z\",\n  \"title\": \"minim ullamco Duis adipisicing\",\n  \"categories\": [\n   \"cupidatat qui\",\n   \"quis eiusmod nisi occaecat\"\n  ],\n  \"attachments\": [\n   {\n    \"url\": \"Ut incididunt\"\n   },\n   {\n    \"url\": \"sunt culpa quis\"\n   }\n  ]\n },\n {\n  \"message\": \"dolore\",\n  \"id\": \"8e99f093-a182-f274-2642-b1b7ea0183e2\",\n  \"date\": \"2009-12-21T20:58:24.998Z\",\n  \"title\": \"ullamco quis\",\n  \"categories\": [\n   \"et ipsum consequat\",\n   \"enim incididunt\"\n  ],\n  \"attachments\": [\n   {\n    \"url\": \"quis\"\n   },\n   {\n    \"url\": \"ea ullamco\"\n   }\n  ]\n }\n]"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedback/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedback",
+										"user"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedback/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedback",
+										"user"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/feedback/user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Message",
+									"value": "Hello World",
+									"description": "(Required) ",
+									"type": "text"
+								},
+								{
+									"key": "Title",
+									"value": "Test123",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "Categories",
+									"value": "[\"cupidatat enim aliquip ea\",\"esse dolor velit\"]",
+									"description": "Optional",
+									"type": "text"
+								},
+								{
+									"key": "attachments",
+									"description": "Optional",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/feedback/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"feedback",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Message",
+											"value": "consectetur in reprehenderit i",
+											"description": "(Required) ",
+											"type": "text"
+										},
+										{
+											"key": "Title",
+											"value": "Ut est",
+											"type": "text"
+										},
+										{
+											"key": "Categories",
+											"value": "[\"nisi esse ut officia\",\"in nisi\"]",
+											"type": "text"
+										},
+										{
+											"key": "attachments",
+											"value": "[\"ea enim eu dolor\",\"do in labore\"]",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/feedback/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedback",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Message",
+											"value": "consectetur in reprehenderit i",
+											"description": "(Required) ",
+											"type": "text"
+										},
+										{
+											"key": "Title",
+											"value": "Ut est",
+											"type": "text"
+										},
+										{
+											"key": "Categories",
+											"value": "[\"nisi esse ut officia\",\"in nisi\"]",
+											"type": "text"
+										},
+										{
+											"key": "attachments",
+											"value": "[\"ea enim eu dolor\",\"do in labore\"]",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/feedback/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedback",
+										"user"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "Message",
+											"value": "consectetur in reprehenderit i",
+											"description": "(Required) ",
+											"type": "text"
+										},
+										{
+											"key": "Title",
+											"value": "Ut est",
+											"type": "text"
+										},
+										{
+											"key": "Categories",
+											"value": "[\"nisi esse ut officia\",\"in nisi\"]",
+											"type": "text"
+										},
+										{
+											"key": "attachments",
+											"value": "[\"ea enim eu dolor\",\"do in labore\"]",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/feedback/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedback",
+										"user"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "feedbacks",
+			"item": [
+				{
+					"name": "/feedbacks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/feedbacks?Limit=50&Offset=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"feedbacks"
+							],
+							"query": [
+								{
+									"key": "Limit",
+									"value": "50"
+								},
+								{
+									"key": "Offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"message\": \"dolor exer\",\n  \"id\": \"urn:uuid:89aa7a81-9e62-f0c2-e377-11d48418bf0d\",\n  \"date\": \"1990-12-14T08:26:04.584Z\",\n  \"title\": \"minim ullamco Duis adipisicing\",\n  \"categories\": [\n   \"cupidatat qui\",\n   \"quis eiusmod nisi occaecat\"\n  ],\n  \"attachments\": [\n   {\n    \"url\": \"Ut incididunt\"\n   },\n   {\n    \"url\": \"sunt culpa quis\"\n   }\n  ]\n },\n {\n  \"message\": \"dolore\",\n  \"id\": \"8e99f093-a182-f274-2642-b1b7ea0183e2\",\n  \"date\": \"2009-12-21T20:58:24.998Z\",\n  \"title\": \"ullamco quis\",\n  \"categories\": [\n   \"et ipsum consequat\",\n   \"enim incididunt\"\n  ],\n  \"attachments\": [\n   {\n    \"url\": \"quis\"\n   },\n   {\n    \"url\": \"ea ullamco\"\n   }\n  ]\n }\n]"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get By User Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/feedbacks/:userId?Limit=-7567819&Offset=-7567819",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"feedbacks",
+								":userId"
+							],
+							"query": [
+								{
+									"key": "Limit",
+									"value": "-7567819"
+								},
+								{
+									"key": "Offset",
+									"value": "-7567819"
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "urn:uuid:68fd5886-93e7-7a75-d9c0-9090fdb528ac",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks/:userId?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks",
+										":userId"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"message\": \"dolor exer\",\n  \"id\": \"urn:uuid:89aa7a81-9e62-f0c2-e377-11d48418bf0d\",\n  \"date\": \"1990-12-14T08:26:04.584Z\",\n  \"title\": \"minim ullamco Duis adipisicing\",\n  \"categories\": [\n   \"cupidatat qui\",\n   \"quis eiusmod nisi occaecat\"\n  ],\n  \"attachments\": [\n   {\n    \"url\": \"Ut incididunt\"\n   },\n   {\n    \"url\": \"sunt culpa quis\"\n   }\n  ]\n },\n {\n  \"message\": \"dolore\",\n  \"id\": \"8e99f093-a182-f274-2642-b1b7ea0183e2\",\n  \"date\": \"2009-12-21T20:58:24.998Z\",\n  \"title\": \"ullamco quis\",\n  \"categories\": [\n   \"et ipsum consequat\",\n   \"enim incididunt\"\n  ],\n  \"attachments\": [\n   {\n    \"url\": \"quis\"\n   },\n   {\n    \"url\": \"ea ullamco\"\n   }\n  ]\n }\n]"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks/:userId?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks",
+										":userId"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/feedbacks/:userId?Limit=-7567819&Offset=-7567819",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"feedbacks",
+										":userId"
+									],
+									"query": [
+										{
+											"key": "Limit",
+											"value": "-7567819"
+										},
+										{
+											"key": "Offset",
+											"value": "-7567819"
+										}
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "jwt-fake",
+			"item": [
+				{
+					"name": "/jwt-fake",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Set JWT Token\", function () {\r",
+									"    pm.collectionVariables.set(\"jwt_token\", pm.response.text());\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jwt-fake",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jwt-fake"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/jwt-fake",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"jwt-fake"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"esse\""
+						}
+					]
+				},
+				{
+					"name": "/jwt-fake/admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Set JWT Token\", function () {\r",
+									"    pm.collectionVariables.set(\"jwt_token\", pm.response.text());\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jwt-fake/admin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jwt-fake",
+								"admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/jwt-fake/admin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"jwt-fake",
+										"admin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"esse\""
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:5001"
+		},
+		{
+			"key": "jwt_token",
+			"value": ""
+		}
+	]
+}

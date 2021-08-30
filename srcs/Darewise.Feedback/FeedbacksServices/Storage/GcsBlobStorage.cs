@@ -7,6 +7,7 @@ namespace Darewise.Feedback.Controllers
 {
     /// <summary>
     /// They didn't provide interface so I can not mock them
+    /// Just showing it isn't that hard to implement but this class is not used
     /// </summary>
     public class GcsBlobStorage : IBlobStorage
     {
