@@ -10,7 +10,7 @@ namespace Darewise.Feedback.Controllers
 {
     [ApiController]
     [Route("/feedbacks")]
-    [Authorize]
+    [Authorize(Roles = "feedback-admin")]
     public class FeedbackAdministrationController : ControllerBase
     {
         private readonly ILogger<FeedbackAdministrationController> _logger;

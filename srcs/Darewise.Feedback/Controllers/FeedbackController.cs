@@ -55,7 +55,7 @@ namespace Darewise.Feedback.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpPost]
-        public async Task Create([FromBody] FeedbackCreateForm form, List<IFormFile> attachments)
+        public async Task Create([FromForm] FeedbackCreateForm form, [FromForm(Name = "attachments")] List<IFormFile> attachments)
         {
             Guid userId = _contextAccessor.GetUserId();
             var feedback = new FeedbackEntity()

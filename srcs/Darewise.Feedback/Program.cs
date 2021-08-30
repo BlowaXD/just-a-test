@@ -58,12 +58,19 @@ builder.Services.AddAuthentication(s =>
         ValidateLifetime = false,
     };
 });
+builder.Services.AddHttpContextAccessor();
 
+// blob
+builder.Services.AddSingleton<IBlobStorage, FileSystemBlobStorage>();
+builder.Services.AddSingleton<IFeedbackBlobStorage, FeedbackBlobStorage>();
+builder.Services.AddSingleton(typeof(IMessagePublisher<>), typeof(GenericMockedMessagePublisher<>));
 
-builder.Services.Configure<AttachmentUploadOptions>(builder.Configuration);
+var options = new AttachmentUploadOptions();
+builder.Configuration.Bind("AttachmentOptions", options);
+builder.Services.AddSingleton<AttachmentUploadOptions>(options);
+
 builder.Services.AddSingleton<JwtSecurityOptions>(new JwtSecurityOptions() { JwtPrivateKey = jwtAuth });
 builder.Services.AddSingleton(typeof(IMapper<,>), typeof(GenericMapsterMapper<,>));
-
 
 // I would have preferred InMemoryDatabase but EFCore.InMemory does not support SQL & NoSQL inline
 builder.Services.AddDbContextFactory<FeedbackDbContext>(options =>

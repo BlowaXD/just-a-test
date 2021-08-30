@@ -15,7 +15,6 @@ namespace Darewise.Feedback.Controllers
             string? url = await _blobStorage.SaveBlobAsync("feedback", feedbackBlob.Filename, feedbackBlob.ContentType, feedbackBlob.Data);
             return new FeedbackAttachment()
             {
-                Type = AttachmentType.LOGS,
                 Url = url,
             };
         }
