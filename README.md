@@ -3,7 +3,7 @@ Darewise test, feedback API
 
 
 ## Architecture
-
+e
 This is an example architecture of what I would have done
 
 Feedback API publishing message to a broker (Google PubSub, RabbitMQ...)
